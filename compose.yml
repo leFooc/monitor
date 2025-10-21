@@ -1,0 +1,18 @@
+version: "2.4"
+services:
+  postgres-exporter:
+    container_name: postgres-exporter
+    image: quay.io/prometheuscommunity/postgres-exporter:latest
+    environment:
+      DATA_SOURCE_URI: localhost:5432/postgres?sslmode=disable
+      DATA_SOURCE_USER:
+      DATA_SOURCE_PASS:
+    ports:
+      - 9187:9187
+    networks:
+      - monitor
+
+networks:
+  monitor:
+    external: true
+    name: monitor-net

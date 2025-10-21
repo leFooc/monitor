@@ -1,0 +1,16 @@
+version: '2.4'
+services:
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:latest
+    ports:
+      - 3030:3000
+    networks:
+      - monitor
+
+networks:
+  monitor:
+    external: true
+    name: monitor-net
+~
+~
