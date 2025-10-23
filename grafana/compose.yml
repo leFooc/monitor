@@ -3,8 +3,15 @@ services:
   grafana:
     container_name: grafana
     image: grafana/grafana:latest
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel,grafana-worldmap-panel
+    volumes:
+      - ./provisioning:/etc/grafana/provisioning
+      - ./dashboards:/var/lib/grafana/dashboards
     ports:
-      - 3030:3000
+      - 3000:3000
+    extra_hosts:
+      - host.docker.internal:host-gateway
     networks:
       - monitor
 
@@ -12,5 +19,3 @@ networks:
   monitor:
     external: true
     name: monitor-net
-~
-~

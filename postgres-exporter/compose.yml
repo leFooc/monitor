@@ -4,11 +4,13 @@ services:
     container_name: postgres-exporter
     image: quay.io/prometheuscommunity/postgres-exporter:latest
     environment:
-      DATA_SOURCE_URI: localhost:5432/postgres?sslmode=disable
-      DATA_SOURCE_USER:
-      DATA_SOURCE_PASS:
+      DATA_SOURCE_URI: host.docker.internal:5432/postgres?sslmode=disable
+      DATA_SOURCE_USER: postgres
+      DATA_SOURCE_PASS: pro123
     ports:
       - 9187:9187
+    extra_hosts:
+      - host.docker.internal:host-gateway
     networks:
       - monitor
 
