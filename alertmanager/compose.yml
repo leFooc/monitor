@@ -1,0 +1,21 @@
+version: '2.4'
+services:
+  alertmanager:
+    container_name: alertmanager
+    image: prom/alertmanager:latest
+    volumes:
+      - ./alertmanager.yml:/etc/alertmanager/config.yml
+      - ./templates:/etc/alertmanager/templates
+    command:
+      - --config.file=/etc/alertmanager/config.yml
+    ports:
+      - 9093:9093
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    networks:
+      - monitor-net
+
+networks:
+  monitor-net:
+    external: true
+    name: monitor-net
