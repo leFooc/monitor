@@ -21,7 +21,6 @@
       }
     ]
   },
-  "description": "\n\n- Expanding all the rows may consume too much resources.\n- Limit the containers by selecting compose_project.\n- First few rows are stacked. Container rows are not.\n\nIf you have any issues or suggestions, please email mail@maoyin.eu.",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
@@ -8425,7 +8424,7 @@
   "preload": false,
   "refresh": "",
   "schemaVersion": 42,
-  "tags": ["cadvisor", "container"],
+  "tags": ["cadvisor", "docker", "container"],
   "templating": {
     "list": [
       {

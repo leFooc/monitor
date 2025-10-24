@@ -8,4 +8,4 @@ providers:
     disableDeletion: false
     updateIntervalSeconds: 15
     options:
-      path: /var/lib/grafana/cadvisor.json
+      path: /var/lib/grafana/dashboards/cadvisor.json
