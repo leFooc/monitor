@@ -1,0 +1,11 @@
+apiVersion: 1
+
+providers:
+  - name: "Cadvisor"
+    orgId: 1
+    type: file
+    folder: ""
+    disableDeletion: false
+    updateIntervalSeconds: 15
+    options:
+      path: /var/lib/grafana/cadvisor.json
