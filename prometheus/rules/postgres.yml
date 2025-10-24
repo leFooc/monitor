@@ -1,0 +1,17 @@
+- alert: PostgresDown
+  expr: pg_up == 0
+  for: 5m
+  labels:
+    severity: critical
+  annotations:
+    summary: "PostgreSQL instance is down"
+    description: "The PostgreSQL instance has been down for more than 5 minutes."
+
+- alert: PostgresHighConnections
+  expr: pg_stat_activity_count > 100
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "High number of connections to PostgreSQL"
+    description: "The number of active connections to PostgreSQL has exceeded 100 for more than 5 minutes."

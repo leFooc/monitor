@@ -1,0 +1,10 @@
+{{ define "msteam.title" }}
+Alert: {{ .CommonLabels.alertname }}
+{{ end }}
+
+{{ define "msteam.text" }}
+**Status:** {{ .Status }}
+**Alert Name:** {{ .CommonLabels.alertname }}
+**Severity:** {{ if .CommonLabels.severity }}{{ .CommonLabels.severity }}{{ else }}unknown{{ end }}
+**Description:** {{ if .CommonAnnotations.description }}{{ .CommonAnnotations.description }}{{ else }}No description{{ end }}
+{{ end }}
