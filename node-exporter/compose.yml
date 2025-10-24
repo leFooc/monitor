@@ -1,0 +1,16 @@
+version: "2.4"
+services:
+  node-exporter:
+    container_name: node-exporter
+    image: prom/node-exporter:latest
+    command:
+      - --path.rootfs=/host
+    volumes:
+      - /:/host:ro,rslave
+    networks:
+      - monitor-net
+
+networks:
+  monitor-net:
+    external: true
+    name: monitor-net

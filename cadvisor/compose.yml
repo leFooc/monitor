@@ -1,0 +1,27 @@
+version: "2.4"
+services:
+  cadvisor:
+    container_name: cadvisor
+    image: gcr.io/cadvisor/cadvisor:latest
+    platform: linux/amd64
+    privileged: true
+    devices:
+      - /dev/kmsg
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      # snap only
+      # - /var/snap/docker/common/var-lib-docker/:/var/lib/docker:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+      - /run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 8080:8080
+    networks:
+      - monitor-net
+
+networks:
+  monitor-net:
+    external: true
+    name: monitor-net
